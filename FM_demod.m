@@ -1,11 +1,8 @@
 function [out,z_B2,zn2,zdis,yn1,yb1] = FM_demod(x,B1,N1,B2,N2,fs)
 simpleSA(x,2^14,2400);
 discrim(x);
-N1=10;
-N2=50;
 fs1=fs/N1;
 fs2=fs/N2;
-fc=101500000;
 [b,a]=butter(6,B1/(fs/2));
 yb1=filter(b,a,x);
 yn1=decimate(yb1,10);
@@ -26,4 +23,5 @@ out = filter(b,a,zn2);
 sound(out,48000);
 end
 
+  
   
